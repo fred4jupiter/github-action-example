@@ -10,6 +10,14 @@ jobs:
     - name: Checkout the code
       uses: actions/checkout@v3
 
+    - name: Cache local Maven repository
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
+
     - name: Update version
       id: version_update
       uses: fred4jupiter/maven-version-update-action@main
