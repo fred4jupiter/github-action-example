@@ -9,7 +9,7 @@ jobs:
     steps:
     - name: Checkout Latest Commit
       id: version_update
-      uses: fred4jupiter/maven-version-update-action
+      uses: fred4jupiter/maven-version-update-action@main
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Print release version
