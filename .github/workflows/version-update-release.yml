@@ -29,3 +29,4 @@ jobs:
       
     - name: Print next development version
       run: "echo 'New Version: ${{steps.version_update.outputs.next-develop-version}}'"
+      
