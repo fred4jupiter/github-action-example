@@ -20,7 +20,7 @@ jobs:
 
     - name: Update version
       id: version_update
-      uses: fred4jupiter/maven-version-update-action@main
+      uses: fred4jupiter/maven-version-update-action@v1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
 
