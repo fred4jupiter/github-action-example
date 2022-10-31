@@ -77,22 +77,17 @@ jobs:
             --tag ghcr.io/${DOCKER_IMAGE}:${{needs.build_tag_repo.outputs.release_version}} \
             --file ./Dockerfile-simple-layered \
             --output type=image,push=true .
-      - name: Create changelog
-        id: create_changelog
-        uses: mikepenz/release-changelog-builder-action@v3
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Echo Configuration without Checkout Changelog
-        env:
-          CHANGELOG: ${{ steps.create_changelog.outputs.changelog }}
-        run: echo "CHANGELOG"
+      - name: Generate changelog
+        id: changelog
+        uses: metcalfc/changelog-generator@v4.0.1
+        with:
+          myToken: ${{ secrets.GITHUB_TOKEN }}
       - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
           tag_name: ${{needs.build_tag_repo.outputs.release_version}}
           release_name: Release ${{needs.build_tag_repo.outputs.release_version}}
-          body: ${{steps.create_changelog.outputs.changelog}}
+          body: ${{steps.changelog.outputs.changelog}}
