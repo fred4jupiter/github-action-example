@@ -60,7 +60,6 @@ jobs:
             --tag ghcr.io/${DOCKER_IMAGE}:${{ env.RELEASE_VERSION }} \
             --file ./Dockerfile-simple-layered \
             --output type=image,push=true .
-            - name: Build Changelog
       - name: Create changelog
         id: create_changelog
         uses: mikepenz/release-changelog-builder-action@v3
