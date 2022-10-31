@@ -11,7 +11,7 @@
 
     <groupId>de.fred4jupiter.githubactionexample</groupId>
     <artifactId>github-action-example</artifactId>
-    <version>0.0.46</version>
+    <version>0.0.47-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
