@@ -1,4 +1,4 @@
-name: publish release of git tag
+name: publish release
 
 on: workflow_dispatch # only manual trigger for release creation is allowed
 
