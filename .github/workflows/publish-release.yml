@@ -33,6 +33,7 @@ jobs:
         run: "echo 'New release Version: ${{steps.version_update.outputs.release-version}}'"
   create_release:
     runs-on: ubuntu-latest
+    needs: build_tag_repo
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3
