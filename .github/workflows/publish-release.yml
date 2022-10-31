@@ -1,4 +1,4 @@
-name: Publish Release of Git Tag
+name: publish release of git tag
 
 on:
   push:

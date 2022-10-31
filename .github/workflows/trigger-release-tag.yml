@@ -1,4 +1,4 @@
-name: Trigger release creation
+name: trigger release creation
 
 on: workflow_dispatch # only manual trigger for release creation is allowed
 
